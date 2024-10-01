@@ -41,9 +41,14 @@ Antes de comenzar, asegúrate de tener lo siguiente:
 ## Uso
 
 1. Inicia el bot:
-   ```
-   python run_bot.py
-   ```
+   - Para la versión en español:
+     ```
+     python bot_logic.py
+     ```
+   - Para la versión en inglés:
+     ```
+     python bot_logic_english.py
+     ```
 
 2. Abre Telegram e inicia un chat con tu bot.
 
@@ -52,6 +57,40 @@ Antes de comenzar, asegúrate de tener lo siguiente:
 4. El bot procesará tu idea y responderá con una confirmación.
 
 5. Revisa tu correo electrónico para ver la versión expandida de tu idea.
+
+## Despliegue en PythonAnywhere
+
+Este proyecto incluye dos archivos adicionales para el despliegue en PythonAnywhere:
+
+### keep_alive.py
+
+Este archivo crea una aplicación web simple con Flask para mantener el bot activo en PythonAnywhere. Hace lo siguiente:
+
+1. Configura una aplicación Flask que responde con "Bot is alive!" cuando se accede.
+2. Crea un hilo para ejecutar la aplicación Flask.
+3. Implementa una función `ping_self()` que envía una solicitud a la URL del bot cada 5 minutos para evitar que se duerma.
+
+Para usar este archivo:
+1. Reemplaza `USER_NAME` en la URL con tu nombre de usuario de PythonAnywhere.
+2. Asegúrate de tener instaladas las bibliotecas `flask` y `requests`.
+
+### run_bot.py
+
+Este archivo es el punto de entrada para ejecutar el bot en PythonAnywhere. Hace lo siguiente:
+
+1. Importa la lógica principal del bot y el módulo keep_alive.
+2. Llama a la función `keep_alive()` para iniciar el hilo de la aplicación Flask.
+3. Inicia el proceso de sondeo del bot para escuchar mensajes entrantes.
+
+Para ejecutar el bot en PythonAnywhere:
+1. Sube tanto `keep_alive.py` como `run_bot.py` a tu cuenta de PythonAnywhere.
+2. Configura una nueva aplicación web en PythonAnywhere y apúntala a la aplicación Flask en `keep_alive.py`.
+3. En la consola bash de PythonAnywhere, ejecuta:
+   ```
+   python run_bot.py
+   ```
+
+Esta configuración mantendrá tu bot funcionando continuamente en PythonAnywhere, incluso con una cuenta de nivel gratuito.
 
 ## Contribuir
 
