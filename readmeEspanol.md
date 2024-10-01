@@ -42,7 +42,7 @@ Antes de comenzar, asegúrate de tener lo siguiente:
 
 1. Inicia el bot:
    ```
-   python bot_logic.py
+   python run_bot.py
    ```
 
 2. Abre Telegram e inicia un chat con tu bot.

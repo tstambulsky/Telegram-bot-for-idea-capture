@@ -43,11 +43,11 @@ Before you begin, ensure you have met the following requirements:
 1. Start the bot:
    - For the Spanish version:
      ```
-     python bot_logic.py
+     python run_bot.py
      ```
    - For the English version:
      ```
-     python bot_logic_english.py
+     python run_bot_english.py
      ```
 
 2. Open Telegram and start a chat with your bot.
